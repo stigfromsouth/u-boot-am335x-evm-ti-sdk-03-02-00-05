@@ -1,12 +1,13 @@
+```
 #
 # (C) Copyright 2000 - 2013
 # Wolfgang Denk, DENX Software Engineering, wd@denx.de.
 #
 # SPDX-License-Identifier:	GPL-2.0+
 #
+```
+## Summary:
 
-Summary:
-========
 
 This directory contains the source code for U-Boot, a boot loader for
 Embedded boards based on PowerPC, ARM, MIPS and several other
@@ -27,8 +28,7 @@ code (for instance hardware test utilities) to the monitor, you can
 load and run it dynamically.
 
 
-Status:
-=======
+### Status:
 
 In general, all boards for which a configuration option exists in the
 Makefile have been tested to some extent and can be considered
@@ -43,11 +43,11 @@ Note: As of August, 2010, there is no longer a CHANGELOG file in the
 actual U-Boot source tree; however, it can be created dynamically
 from the Git log using:
 
-	make CHANGELOG
+	`make CHANGELOG`
 
 
-Where to get help:
-==================
+### Where to get help:
+
 
 In case you have questions about, problems with or contributions for
 U-Boot, you should send a message to the U-Boot mailing list at
@@ -57,8 +57,8 @@ Please see http://lists.denx.de/pipermail/u-boot and
 http://dir.gmane.org/gmane.comp.boot-loaders.u-boot
 
 
-Where to get source code:
-=========================
+### Where to get source code:
+
 
 The U-Boot source code is maintained in the Git repository at
 git://www.denx.de/git/u-boot.git ; you can browse it online at
@@ -73,8 +73,8 @@ Pre-built (and tested) images are available from
 ftp://ftp.denx.de/pub/u-boot/images/
 
 
-Where we come from:
-===================
+### Where we come from:
+
 
 - start from 8xxrom sources
 - create PPCBoot project (http://sourceforge.net/projects/ppcboot)
@@ -92,8 +92,7 @@ Where we come from:
 - current project page: see http://www.denx.de/wiki/U-Boot
 
 
-Names and Spelling:
-===================
+## Names and Spelling:
 
 The "official" name of this project is "Das U-Boot". The spelling
 "U-Boot" shall be used in all written text (documentation, comments
@@ -102,11 +101,11 @@ in source files etc.). Example:
 	This is the README file for the U-Boot project.
 
 File names etc. shall be based on the string "u-boot". Examples:
-
+```
 	include/asm-ppc/u-boot.h
 
 	#include <asm/u-boot.h>
-
+```
 Variable names, preprocessor constants etc. shall be either based on
 the string "u_boot" or on "U_BOOT". Example:
 
@@ -114,8 +113,7 @@ the string "u_boot" or on "U_BOOT". Example:
 	IH_OS_U_BOOT		u_boot_hush_start
 
 
-Versioning:
-===========
+### Versioning:
 
 Starting with the release in October 2008, the names of the releases
 were changed from numerical release numbers without deeper meaning
@@ -130,8 +128,7 @@ Examples:
 	U-Boot v2010.09-rc1 - Release candiate 1 for September 2010 release
 
 
-Directory Hierarchy:
-====================
+### Directory Hierarchy:
 
 /arch			Architecture specific files
   /arc			Files generic to ARC architecture
@@ -168,8 +165,7 @@ Directory Hierarchy:
 /test			Various unit test files
 /tools			Tools to build S-Record or U-Boot images, etc.
 
-Software Configuration:
-=======================
+### Software Configuration:
 
 Configuration is usually done using C preprocessor defines; the
 rationale behind that is to avoid dead code whenever possible.
@@ -192,23 +188,21 @@ allowing you to use the "make menuconfig" command to configure your
 build.
 
 
-Selection of Processor Architecture and Board Type:
----------------------------------------------------
+### Selection of Processor Architecture and Board Type:
 
 For all supported boards there are ready-to-use default
 configurations available; just type "make <board_name>_defconfig".
 
 Example: For a TQM823L module type:
-
+```
 	cd u-boot
 	make TQM823L_defconfig
-
+```
 Note: If you're looking for the default configuration file for a board
 you're sure used to be there but is now missing, check the file
 doc/README.scrapyard for a list of no longer supported boards.
 
-Sandbox Environment:
---------------------
+### Sandbox Environment:
 
 U-Boot can be built natively to run on a Linux host using the 'sandbox'
 board. This allows feature development which is not board- or architecture-
@@ -218,8 +212,7 @@ run some of U-Boot's tests.
 See board/sandbox/README.sandbox for more details.
 
 
-Board Initialisation Flow:
---------------------------
+### Board Initialisation Flow:
 
 This is the intended start-up flow for boards. This should apply for both
 SPL and U-Boot proper (i.e. they both follow the same rules).
@@ -299,8 +292,7 @@ board_init_r():
 
 
 
-Configuration Options:
-----------------------
+### Configuration Options:
 
 Configuration depends on the combination of board and CPU type; all
 such information is kept in a configuration file
@@ -3708,8 +3700,7 @@ FIT uImage format:
 		general timer_interrupt().
 
 
-Board initialization settings:
-------------------------------
+### Board initialization settings:
 
 During Initialization u-boot calls a number of board specific functions
 to allow the preparation of board specific prerequisites, e.g. pin setup
@@ -3723,8 +3714,7 @@ typically in board_init_f() and board_init_r().
 - CONFIG_BOARD_LATE_INIT: Call board_late_init()
 - CONFIG_BOARD_POSTCLK_INIT: Call board_postclk_init()
 
-Configuration Settings:
------------------------
+### Configuration Settings:
 
 - CONFIG_SYS_SUPPORT_64BIT_DATA: Defined automatically if compiled as 64-bit.
 		Optionally it can be defined to support 64-bit memory commands.
@@ -4502,8 +4492,7 @@ use the "saveenv" command to store a valid environment.
 		build system checks that the actual size does not
 		exceed it.
 
-Low Level (hardware related) configuration options:
----------------------------------------------------
+### Low Level (hardware related) configuration options:
 
 - CONFIG_SYS_CACHELINE_SIZE:
 		Cache Line Size of the CPU.
@@ -4876,8 +4865,7 @@ Low Level (hardware related) configuration options:
 		driver that uses this:
 		drivers/mtd/nand/davinci_nand.c
 
-Freescale QE/FMAN Firmware Support:
------------------------------------
+### Freescale QE/FMAN Firmware Support:
 
 The Freescale QUICCEngine (QE) and Frame Manager (FMAN) both support the
 loading of "firmware", which is encoded in the QE firmware binary format.
@@ -4925,8 +4913,8 @@ within that device.
 	window->master inbound window->master LAW->the ucode address in
 	master's memory space.
 
-Freescale Layerscape Management Complex Firmware Support:
----------------------------------------------------------
+### Freescale Layerscape Management Complex Firmware Support:
+
 The Freescale Layerscape Management Complex (MC) supports the loading of
 "firmware".
 This firmware often needs to be loaded during U-Boot booting, so macros
@@ -4952,8 +4940,8 @@ within that device.
 	normal addressable memory via the LBC. CONFIG_SYS_LS_MC_FW_ADDR is the
 	virtual address in NOR flash.
 
-Freescale Layerscape Debug Server Support:
--------------------------------------------
+### Freescale Layerscape Debug Server Support:
+
 The Freescale Layerscape Debug Server Support supports the loading of
 "Debug Server firmware" and triggering SP boot-rom.
 This firmware often needs to be loaded during U-Boot booting.
@@ -4967,8 +4955,7 @@ This firmware often needs to be loaded during U-Boot booting.
 - CONFIG_SYS_MC_RSV_MEM_ALIGN
 	Define alignment of reserved memory MC requires
 
-Reproducible builds
--------------------
+### Reproducible builds
 
 In order to achieve reproducible builds, timestamps used in the U-Boot build
 process have to be set to a fixed value.
@@ -4979,8 +4966,8 @@ option for U-Boot or an environment variable in U-Boot.
 
 SOURCE_DATE_EPOCH should be set to a number of seconds since the epoch, in UTC.
 
-Building the Software:
-======================
+## Building the Software:
+
 
 Building U-Boot has been tested in several native build environments
 and in many different cross environments. Of course we cannot support
@@ -4994,10 +4981,10 @@ have GNU cross compiling tools available in your path. In this case,
 you must set the environment variable CROSS_COMPILE in your shell.
 Note that no changes to the Makefile or any other source files are
 necessary. For example using the ELDK on a 4xx CPU, please enter:
-
+```
 	$ CROSS_COMPILE=ppc_4xx-
 	$ export CROSS_COMPILE
-
+```
 Note: If you wish to generate Windows versions of the utilities in
       the tools directory you can use the MinGW toolchain
       (http://www.mingw.org).  Set your HOST tools to the MinGW
@@ -5012,7 +4999,7 @@ U-Boot is intended to be simple to build. After installing the
 sources you must configure U-Boot for one specific board type. This
 is done by typing:
 
-	make NAME_defconfig
+	`make NAME_defconfig`
 
 where "NAME_defconfig" is the name of one of the existing configu-
 rations; see boards.cfg for supported names.
@@ -5023,10 +5010,10 @@ Note: for some board special configuration names may exist; check if
       or with LCD support. You can select such additional "features"
       when choosing the configuration, i. e.
 
-      make TQM823L_defconfig
+      `make TQM823L_defconfig`
 	- will configure for a plain TQM823L, i. e. no LCD support
 
-      make TQM823L_LCD_defconfig
+      `make TQM823L_LCD_defconfig`
 	- will configure for a TQM823L with U-Boot console on LCD
 
       etc.
@@ -5083,8 +5070,7 @@ steps:
     [Of course, this last step is much harder than it sounds.]
 
 
-Testing of U-Boot Modifications, Ports to New Hardware, etc.:
-==============================================================
+## Testing of U-Boot Modifications, Ports to New Hardware, etc.:
 
 If you have modified U-Boot sources (for instance added a new board
 or support for new devices, a new CPU, etc.) you are expected to
@@ -5101,11 +5087,11 @@ select which (cross) compiler to use by passing a `CROSS_COMPILE'
 environment variable to the script, i. e. to use the ELDK cross tools
 you can type
 
-	CROSS_COMPILE=ppc_8xx- MAKEALL
+	`CROSS_COMPILE=ppc_8xx- MAKEALL`
 
 or to build on a native PowerPC system you can type
 
-	CROSS_COMPILE=' ' MAKEALL
+	`CROSS_COMPILE=' ' MAKEALL`
 
 When using the MAKEALL script, the default behaviour is to build
 U-Boot in the source directory. This location can be changed by
@@ -5114,11 +5100,11 @@ built, the MAKEALL script saves two log files (<target>.ERR and
 <target>.MAKEALL) in the <source dir>/LOG directory. This default
 location can be changed by setting the MAKEALL_LOGDIR environment
 variable. For example:
-
+```
 	export BUILD_DIR=/tmp/build
 	export MAKEALL_LOGDIR=/tmp/log
 	CROSS_COMPILE=ppc_8xx- MAKEALL
-
+```
 With the above settings build objects are saved in the /tmp/build,
 log files are saved in the /tmp/log and the source tree remains clean
 during the whole build process.
@@ -5127,8 +5113,8 @@ during the whole build process.
 See also "U-Boot Porting Guide" below.
 
 
-Monitor Commands - Overview:
-============================
+## Monitor Commands - Overview:
+
 
 go	- start application at address 'addr'
 run	- run commands in an environment variable
@@ -5176,16 +5162,14 @@ help	- print online help
 ?	- alias for 'help'
 
 
-Monitor Commands - Detailed Description:
-========================================
+### Monitor Commands - Detailed Description:
 
 TODO.
 
 For now: just type "help <command>".
 
 
-Environment Variables:
-======================
+### Environment Variables:
 
 U-Boot supports user configuration using Environment Variables which
 can be made persistent by saving to Flash memory.
@@ -5480,14 +5464,13 @@ regular expression. This allows multiple variables to be connected to
 the same callback without explicitly listing them all out.
 
 
-Command Line Parsing:
-=====================
+### Command Line Parsing:
 
 There are two different command line parsers available with U-Boot:
 the old "simple" one, and the much more powerful "hush" shell:
 
-Old, simple command line parser:
---------------------------------
+#### Old, simple command line parser:
+
 
 - supports environment variables (through setenv / saveenv commands)
 - several commands on one line, separated by ';'
@@ -5498,8 +5481,7 @@ Old, simple command line parser:
 - You can also escape text by enclosing in single apostrophes, for example:
 	setenv addip 'setenv bootargs $bootargs ip=$ipaddr:$serverip:$gatewayip:$netmask:$hostname::off'
 
-Hush shell:
------------
+#### Hush shell:
 
 - similar to Bourne shell, with control structures like
   if...then...else...fi, for...do...done; while...do...done,
@@ -5509,8 +5491,8 @@ Hush shell:
   "name=value"); only environment variables can be used with "run"
   command
 
-General rules:
---------------
+#### General rules:
+
 
 (1) If a command line (or an environment variable executed by a "run"
     command) contains several commands separated by semicolon, and
@@ -5522,8 +5504,8 @@ General rules:
     command will cause "run" to terminate, i. e. the remaining
     variables are not executed.
 
-Note for Redundant Ethernet Interfaces:
-=======================================
+### Note for Redundant Ethernet Interfaces:
+
 
 Some boards come with redundant Ethernet interfaces; U-Boot supports
 such configurations and is capable of automatic selection of a
@@ -5562,14 +5544,12 @@ may be skipped by setting the appropriate 'ethmacskip' environment variable.
 The naming convention is as follows:
 "ethmacskip" (=>eth0), "eth1macskip" (=>eth1) etc.
 
-Image Formats:
-==============
+### Image Formats:
 
 U-Boot is capable of booting (and performing other auxiliary operations on)
 images in two formats:
 
-New uImage format (FIT)
------------------------
+#### New uImage format (FIT)
 
 Flexible and powerful format based on Flattened Image Tree -- FIT (similar
 to Flattened Device Tree). It allows the use of images with multiple
@@ -5577,8 +5557,7 @@ components (several kernels, ramdisks, etc.), with contents protected by
 SHA1, MD5 or CRC32. More details are found in the doc/uImage.FIT directory.
 
 
-Old uImage format
------------------
+#### Old uImage format
 
 Old image format is based on binary files which can be basically anything,
 preceded by a special header; see the definitions in include/image.h for
@@ -5603,8 +5582,7 @@ and the data portions of the image are secured against corruption by
 CRC32 checksums.
 
 
-Linux Support:
-==============
+## Linux Support:
 
 Although U-Boot should support any OS or standalone application
 easily, the main focus has always been on Linux during the design of
@@ -5631,11 +5609,9 @@ serves several purposes:
   software is easier now.
 
 
-Linux HOWTO:
-============
+### Linux HOWTO:
 
-Porting Linux to U-Boot based systems:
----------------------------------------
+#### Porting Linux to U-Boot based systems:
 
 U-Boot cannot save you from doing all the necessary modifications to
 configure the Linux device drivers for use with your target hardware
@@ -5656,15 +5632,13 @@ is no uclass available, you are encouraged to create one. See
 doc/driver-model.
 
 
-Configuring the Linux kernel:
------------------------------
+#### Configuring the Linux kernel:
 
 No specific requirements for U-Boot. Make sure you have some root
 device (initial ramdisk, NFS) for your target system.
 
 
-Building a Linux Image:
------------------------
+#### Building a Linux Image:
 
 With U-Boot, "normal" build targets like "zImage" or "bzImage" are
 not used. If you use recent kernel source, a new build target
@@ -5674,12 +5648,12 @@ which was introduced for our predecessor project PPCBoot and uses a
 100% compatible format.
 
 Example:
-
+```
 	make TQM850L_defconfig
 	make oldconfig
 	make dep
 	make uImage
-
+```
 The "uImage" build target uses a special tool (in 'tools/mkimage') to
 encapsulate a compressed Linux kernel image with header	 information,
 CRC32 checksum etc. for use with U-Boot. This is what we are doing:
@@ -5687,21 +5661,21 @@ CRC32 checksum etc. for use with U-Boot. This is what we are doing:
 * build a standard "vmlinux" kernel image (in ELF binary format):
 
 * convert the kernel into a raw binary image:
-
+```
 	${CROSS_COMPILE}-objcopy -O binary \
 				 -R .note -R .comment \
 				 -S vmlinux linux.bin
-
+```
 * compress the binary image:
 
-	gzip -9 linux.bin
+	`gzip -9 linux.bin`
 
 * package compressed binary image for U-Boot:
-
+```
 	mkimage -A ppc -O linux -T kernel -C gzip \
 		-a 0 -e 0 -n "Linux Kernel Image" \
 		-d linux.bin.gz uImage
-
+```
 
 The "mkimage" tool can also be used to create ramdisk images for use
 with U-Boot, either separated from the Linux kernel image, or
@@ -5716,13 +5690,13 @@ print the header information, or to build new images.
 In the first form (with "-l" option) mkimage lists the information
 contained in the header of an existing U-Boot image; this includes
 checksum verification:
-
+```
 	tools/mkimage -l image
 	  -l ==> list image header information
-
+```
 The second form (with "-d" option) is used to build a U-Boot image
 from a "data file" which is used as image payload:
-
+```
 	tools/mkimage -A arch -O os -T type -C comp -a addr -e ep \
 		      -n name -d data_file image
 	  -A ==> set architecture to 'arch'
@@ -5733,7 +5707,7 @@ from a "data file" which is used as image payload:
 	  -e ==> set entry point to 'ep' (hex)
 	  -n ==> set image name to 'name'
 	  -d ==> use image data from 'datafile'
-
+```
 Right now, all Linux kernels for PowerPC systems use the same load
 address (0x00000000), but the entry point address depends on the
 kernel version:
@@ -5806,13 +5780,12 @@ from the image:
 	  -p ==> 'position' (starting at 0) of the 'data_file' inside the 'image'
 
 
-Installing a Linux Image:
--------------------------
+### Installing a Linux Image:
 
 To downloading a U-Boot image over the serial (console) interface,
 you must convert the image to S-Record format:
 
-	objcopy -I binary -O srec examples/image examples/image.srec
+	`objcopy -I binary -O srec examples/image examples/image.srec`
 
 The 'objcopy' does not understand the information in the U-Boot
 image header, so the resulting S-Record file will be relative to
@@ -5822,7 +5795,7 @@ command.
 
 Example: install the image to address 0x40100000 (which on the
 TQM8xxL is in the first Flash bank):
-
+```
 	=> erase 40100000 401FFFFF
 
 	.......... done
@@ -5838,11 +5811,11 @@ TQM8xxL is in the first Flash bank):
 	[connected]
 	## Start Addr = 0x00000000
 
-
+```
 You can check the success of the download using the 'iminfo' command;
 this includes a checksum verification so you can be sure no data
 corruption happened:
-
+```
 	=> imi 40100000
 
 	## Checking Image at 40100000 ...
@@ -5852,10 +5825,9 @@ corruption happened:
 	   Load Address: 00000000
 	   Entry Point:	 0000000c
 	   Verifying Checksum ... OK
+```
 
-
-Boot Linux:
------------
+### Boot Linux:
 
 The "bootm" command is used to boot an application that is stored in
 memory (RAM or Flash). In case of a Linux kernel image, the contents
@@ -5863,7 +5835,7 @@ of the "bootargs" environment variable is passed to the kernel as
 parameters. You can check and modify this variable using the
 "printenv" and "setenv" commands:
 
-
+```
 	=> printenv bootargs
 	bootargs=root=/dev/ram
 
@@ -5887,11 +5859,11 @@ parameters. You can check and modify this variable using the
 	Calibrating delay loop... 49.77 BogoMIPS
 	Memory: 15208k available (700k kernel code, 444k data, 32k init) [c0000000,c1000000]
 	...
-
+```
 If you want to boot a Linux kernel with initial RAM disk, you pass
 the memory addresses of both the kernel and the initrd image (PPBCOOT
 format!) to the "bootm" command:
-
+```
 	=> imi 40100000 40200000
 
 	## Checking Image at 40100000 ...
@@ -5936,15 +5908,14 @@ format!) to the "bootm" command:
 	VFS: Mounted root (ext2 filesystem).
 
 	bash#
-
-Boot Linux and pass a flat device tree:
------------
+```
+### Boot Linux and pass a flat device tree:
 
 First, U-Boot must be compiled with the appropriate defines. See the section
 titled "Linux Kernel Interface" above for a more in depth explanation. The
 following is an example of how to start a kernel and pass an updated
 flat device tree:
-
+```
 => print oftaddr
 oftaddr=0x300000
 => print oft
@@ -5984,10 +5955,9 @@ Booting using flat device tree at 0x300000
 Using MPC85xx ADS machine description
 Memory CAM mapping: CAM0=256Mb, CAM1=256Mb, CAM2=0Mb residual: 0Mb
 [snip]
+```
 
-
-More About U-Boot Image Types:
-------------------------------
+### More About U-Boot Image Types:
 
 U-Boot supports the following image types:
 
@@ -6026,8 +5996,7 @@ U-Boot supports the following image types:
 	useful when you configure U-Boot to use a real shell (hush)
 	as command interpreter.
 
-Booting the Linux zImage:
--------------------------
+### Booting the Linux zImage:
 
 On some platforms, it's possible to boot Linux zImage. This is done
 using the "bootz" command. The syntax of "bootz" command is the same
@@ -6039,8 +6008,7 @@ address of the initrd must be augmented by it's size, in the following
 format: "<initrd addres>:<initrd size>".
 
 
-Standalone HOWTO:
-=================
+### Standalone HOWTO:
 
 One of the features of U-Boot is that you can dynamically load and
 run "standalone" applications, which can use some resources of
@@ -6048,14 +6016,13 @@ U-Boot like console I/O functions or interrupt services.
 
 Two simple examples are included with the sources:
 
-"Hello World" Demo:
--------------------
+### "Hello World" Demo:
 
 'examples/hello_world.c' contains a small "Hello World" Demo
 application; it is automatically compiled when you build U-Boot.
 It's configured to run at address 0x00040004, so you can play with it
 like that:
-
+```
 	=> loads
 	## Ready for S-Record download ...
 	~>examples/hello_world.srec
@@ -6079,14 +6046,14 @@ like that:
 	Hit any key to exit ...
 
 	## Application terminated, rc = 0x0
-
+```
 Another example, which demonstrates how to register a CPM interrupt
 handler with the U-Boot code, can be found in 'examples/timer.c'.
 Here, a CPM timer is set up to generate an interrupt every second.
 The interrupt service routine is trivial, just printing a '.'
 character, but this is just a demo program. The application can be
 controlled by the following keys:
-
+```
 	? - print current values og the CPM Timer registers
 	b - enable interrupts and start timer
 	e - stop timer and disable interrupts
@@ -6125,10 +6092,10 @@ Hit 'e':
 	[q, b, e, ?] ...Stopping timer
 Hit 'q':
 	[q, b, e, ?] ## Application terminated, rc = 0x0
+```
 
+### Minicom warning:
 
-Minicom warning:
-================
 
 Over time, many people have reported problems when trying to use the
 "minicom" terminal emulation program for serial download. I (wd)
@@ -6148,8 +6115,7 @@ configuration to your "File transfer protocols" section:
 	Y  kermit  /usr/bin/kermit -i -l %l -r	 N    D	   Y	   N	  N
 
 
-NetBSD Notes:
-=============
+### NetBSD Notes:
 
 Starting at version 0.9.2, U-Boot supports NetBSD both as host
 (build U-Boot) and target system (boots NetBSD/mpc8xx).
@@ -6160,13 +6126,13 @@ need gmake since the Makefiles are not compatible with BSD make).
 Note that the cross-powerpc package does not install include files;
 attempting to build U-Boot will fail because <machine/ansi.h> is
 missing.  This file has to be installed and patched manually:
-
+```
 	# cd /usr/pkg/cross/powerpc-netbsd/include
 	# mkdir powerpc
 	# ln -s powerpc machine
 	# cp /usr/src/sys/arch/powerpc/include/ansi.h powerpc/ansi.h
 	# ${EDIT} powerpc/ansi.h	## must remove __va_list, _BSD_VA_LIST
-
+```
 Native builds *don't* work due to incompatibilities between native
 and U-Boot include files.
 
@@ -6177,17 +6143,14 @@ tree (probably in sys/arc/mpc8xx/stand/u-boot_stage2/); in the
 meantime, see ftp://ftp.denx.de/pub/u-boot/ppcboot_stage2.tar.gz
 
 
-Implementation Internals:
-=========================
+### Implementation Internals:
 
 The following is not intended to be a complete description of every
 implementation detail. However, it should help to understand the
 inner workings of U-Boot and make it easier to port it to custom
 hardware.
 
-
-Initial Stack, Global Data:
----------------------------
+### Initial Stack, Global Data:
 
 The implementation of U-Boot is complicated by the fact that U-Boot
 starts running out of ROM (flash memory), usually without access to
@@ -6333,8 +6296,7 @@ On NDS32, the following registers are used:
 NOTE: DECLARE_GLOBAL_DATA_PTR must be used with file-global scope,
 or current versions of GCC may "optimize" the code too much.
 
-Memory Management:
-------------------
+### Memory Management:
 
 U-Boot runs in system state and uses physical addresses, i.e. the
 MMU is not used either for address mapping nor for memory protection.
@@ -6378,8 +6340,8 @@ this:
 	0x00FF FFFF	[End of RAM]
 
 
-System Initialization:
-----------------------
+### System Initialization:
+
 
 In the reset configuration, U-Boot starts at the reset entry point
 (on most PowerPC systems at address 0x00000100). Because of the reset
@@ -6416,8 +6378,7 @@ running from ROM, and because the code will have to be relocated to a
 new address in RAM.
 
 
-U-Boot Porting Guide:
-----------------------
+## U-Boot Porting Guide:
 
 [Based on messages by Jerry Van Baren in the U-Boot-Users mailing
 list, October 2002]
@@ -6490,8 +6451,7 @@ void no_more_time (int sig)
 }
 
 
-Coding Standards:
------------------
+## Coding Standards:
 
 All contributions to U-Boot should conform to the Linux kernel
 coding style; see the file "Documentation/CodingStyle" and the script
@@ -6517,8 +6477,7 @@ Submissions which do not conform to the standards may be returned
 with a request to reformat the changes.
 
 
-Submitting Patches:
--------------------
+### Submitting Patches:
 
 Since the number of patches for U-Boot is growing, we need to
 establish some rules. Submissions which do not conform to these rules
