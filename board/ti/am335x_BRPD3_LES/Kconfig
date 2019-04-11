@@ -1,4 +1,4 @@
-if TARGET_AM335X_EVM
+if TARGET_AM335X_BRPD3_LES
 
 config SYS_BOARD
 	default "am335x"
@@ -10,7 +10,7 @@ config SYS_SOC
 	default "am33xx"
 
 config SYS_CONFIG_NAME
-	default "am335x_evm"
+	default "am335x_BRPD3_LES"
 
 config CONS_INDEX
 	int "UART used for console"
