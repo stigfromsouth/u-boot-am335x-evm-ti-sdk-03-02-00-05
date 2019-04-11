@@ -121,15 +121,15 @@ into a time stamp based numbering. Regular releases are identified by
 names consisting of the calendar year and month of the release date.
 Additional fields (if present) indicate release candidates or bug fix
 releases in "stable" maintenance trees.
-
+```
 Examples:
 	U-Boot v2009.11	    - Release November 2009
 	U-Boot v2009.11.1   - Release 1 in version November 2009 stable tree
 	U-Boot v2010.09-rc1 - Release candiate 1 for September 2010 release
-
+```
 
 ### Directory Hierarchy:
-
+```
 /arch			Architecture specific files
   /arc			Files generic to ARC architecture
   /arm			Files generic to ARM architecture
@@ -164,7 +164,7 @@ Examples:
 /scripts		Various build scripts and Makefiles
 /test			Various unit test files
 /tools			Tools to build S-Record or U-Boot images, etc.
-
+```
 ### Software Configuration:
 
 Configuration is usually done using C preprocessor defines; the
